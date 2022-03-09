@@ -1,4 +1,18 @@
+import java.util.Scanner;
+
 public class StringCalculator {
+
+    ConsolLogger logger;
+
+    public StringCalculator(ConsolLogger consolLogger) {
+        logger = consolLogger;
+    }
+
+    public static void main(String[] args) {
+        
+    }
+
+
     public int Add(String s){
 
         if (s == "") {
@@ -17,6 +31,9 @@ public class StringCalculator {
         for (int i = 0; i < split.length; i++) {
 
             checkS(Integer.parseInt(split[i]));
+            if(Integer.parseInt(split[i]) >= 1000){
+                logger.log(split[i]);
+            }
 
             y = y + Integer.parseInt(split[i]);
         }
