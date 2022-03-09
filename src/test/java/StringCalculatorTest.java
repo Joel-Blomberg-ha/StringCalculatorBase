@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
     @Test
@@ -33,6 +34,10 @@ public class StringCalculatorTest {
         assertEquals(10, new StringCalculator().Add("//;\n4;6"));
     }
 
+    @Test
+    public void testNegativeIntegerSum(){
+        assertThrows(StringCalcException.class, () -> {new StringCalculator().Add("-10");});
+    }
    /* @Test
     public void testNegatives(){
         assertEquals( ));
