@@ -10,7 +10,12 @@ public class StringCalculator {
 
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
-        System.out.println("");
+        System.out.println("Enter input:");
+        String s = "";
+        while(myObj.hasNext()){
+         s = s + myObj.nextLine() + ",";
+        }
+        System.out.println("The result is" + new StringCalculator(new ConsolLogger()).Add(s));
     }
 
 
@@ -49,7 +54,6 @@ public class StringCalculator {
             throw new StringCalcException("\n"+"“Negatives not allowed" + s);
         }
         else{
-            System.out.println("good");
         }
     }
 }

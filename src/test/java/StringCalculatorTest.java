@@ -1,5 +1,11 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -58,6 +64,38 @@ public class StringCalculatorTest {
         new StringCalculator(mock).Add("10000");
         verify(mock,times(1)).log("10000");
     }
+
+    @Test
+    public void testStringCalcMain(){
+        InputStream is = new ByteArrayInputStream("1,2,3\n".getBytes(StandardCharsets.UTF_8));
+        System.setIn(is);
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream(1024);
+        System.setOut(new PrintStream(bos));
+
+        StringCalculator.main(new String[0]);
+
+        assertEquals("Enter input:"+System.lineSeparator()+"The result is6"+System.lineSeparator(),bos.toString());
+    }
+
+    @Test
+    public void testStringCalcContinuingRead(){
+        InputStream is = new ByteArrayInputStream("1,2,3\n2,4\n3,3".getBytes(StandardCharsets.UTF_8));
+        System.setIn(is);
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream(1024);
+        System.setOut(new PrintStream(bos));
+
+        StringCalculator.main(new String[0]);
+
+        assertEquals("Enter input:"+System.lineSeparator()+"The result is18"+System.lineSeparator(),bos.toString());
+    }
+
+    @Test
+    public void testCustomDelimiters(){
+
+    }
+
 
 
 }
