@@ -93,7 +93,7 @@ public class StringCalculatorTest {
 
     @Test
     public void testCustomDelimiters(){
-
+        assertEquals(10, new StringCalculator(new ConsolLogger()).Add("//[***][%%%]\n1***4%%%5"));
     }
 
 

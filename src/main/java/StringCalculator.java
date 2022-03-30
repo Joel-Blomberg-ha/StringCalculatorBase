@@ -32,6 +32,12 @@ public class StringCalculator {
             s = s.substring(4);
         }
 
+        if(s.contains("[") && s.contains("]")){
+
+
+
+        }
+
         String[] split = s.split(delimiter);
         int y = 0;
         for (int i = 0; i < split.length; i++) {
