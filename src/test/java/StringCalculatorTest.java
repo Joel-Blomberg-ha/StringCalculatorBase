@@ -91,11 +91,6 @@ public class StringCalculatorTest {
         assertEquals("Enter input:"+System.lineSeparator()+"The result is18"+System.lineSeparator(),bos.toString());
     }
 
-    @Test
-    public void testCustomDelimiters(){
-        assertEquals(10, new StringCalculator(new ConsolLogger()).Add("//[***][%%%]\n1***4%%%5"));
-    }
-
 
 
 }
